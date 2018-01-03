@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="ad.size" content="width=1200,height=600">
+<style>
+
+/* reset */
+
+html { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*, *:before, *:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; }
+body, img, p, span, h1, h2, h3 { border:0px; margin:0px; padding:0px; color:#ffffff; font-family:Arial, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;  }
+
+
+/* set content */
+
+#container { width:750px; height:200px; background-position:center; background-size:cover; overflow:hidden; cursor:pointer; position:fixed; border:1px solid #ccc; }
+#btn { position:absolute; left:584px; top:126px; }
+#logo { position:absolute; left:636px; top:9px; }
+#spiral { position:absolute; left:-1001px; top:-853px;}
+#txt { position:absolute; left:236px; top:20px; }
+#txt2 { position:absolute; left:34px; top:35px; }
+#speaker { position:absolute; left:28px; top:34px;}
+
+</style>
+
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+      <img id="bg" src="bg.png" alt=""/>
+      <img id="spiral" src="spiral.svg" alt=""/>
+        <img id="logo" src="logo.png" alt=""/>
+        <img id="txt" src="txt.svg" alt=""/>
+        <img id="txt2" src="tego-roku.png" alt=""/>
+        <img id="speaker" src="speaker.png" alt=""/>
+        <img id="btn" src="btn.svg" alt=""/>
+	</div>
+</div>
+<script> 
+var clickTag = ""; 
+  var container = document.getElementById('container');
+	var spiral = document.getElementById('spiral');
+	var txt = document.getElementById('txt');
+	var speaker = document.getElementById('speaker');
+  
+  container.addEventListener("click", cta);
+
+  var tl = new TimelineMax
+  tl.to(spiral, 20 , { rotation:360, transformOrigin:"50% 50%", ease:Linear.easeNone, repeat:99 }, 0);
+  
+  var tlTwo = new TimelineMax({repeat:99})
+  tlTwo.to(txt, 0.3 , { scale:1.08, ease:Linear.easeNone,}, 0);
+  tlTwo.to(txt, 0.3 , { scale:1, ease:Linear.easeNone, }, 0.3);
+  
+  var tlThree = new TimelineMax({repeat:99})
+  tlThree.to(speaker, 0.3 , { x:2, ease:Linear.easeNone,}, 0);
+  tlThree.to(speaker, 0.3 , { x:0, ease:Linear.easeNone, }, 0.3);
+
+  function cta() {
+    window.open(window.clickTag, '_blank');
+  };
+
+</script>
+</body>
+</html>
